@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'date_picker_theme.dart';
 import 'date_picker_constants.dart';
+import 'date_picker_theme.dart';
 import 'i18n/date_picker_i18n.dart';
 import 'widget/date_picker_widget.dart';
 
@@ -93,18 +93,18 @@ class DatePicker {
       actions: <Widget>[
         FlatButton(
           textColor: textColor,
+          child: Text(cancelText ?? "Cancel"),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        FlatButton(
+          textColor: textColor,
           child: Text(confirmText ?? "OK"),
           onPressed: () {
             Navigator.pop(context, _selectedDate);
           },
         ),
-        FlatButton(
-          textColor: textColor,
-          child: Text(cancelText ?? "Cancel"),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        )
       ],
     );
     return showDialog(
